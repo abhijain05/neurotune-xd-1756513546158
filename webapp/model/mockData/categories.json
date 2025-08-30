@@ -1,0 +1,24 @@
+{
+  "categories": [
+    {
+      "CategoryID": "CAT001",
+      "CategoryName": "Electronics"
+    },
+    {
+      "CategoryID": "CAT002",
+      "CategoryName": "Clothing"
+    },
+    {
+      "CategoryID": "CAT003",
+      "CategoryName": "Appliances"
+    },
+    {
+      "CategoryID": "CAT004",
+      "CategoryName": "Shoes"
+    },
+    {
+      "CategoryID": "CAT005",
+      "CategoryName": "Furniture"
+    }
+  ]
+}

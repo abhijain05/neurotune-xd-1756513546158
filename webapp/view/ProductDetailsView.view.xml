@@ -1,23 +1,73 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <mvc:View xmlns:mvc="sap.ui.core.mvc"
-  xmlns="sap.m"
-  xmlns:layout="sap.ui.layout"
-  xmlns:form="sap.ui.layout.form"
-  xmlns:core="sap.ui.core"
-  xmlns:richtexteditor="sap.ui.richtexteditor"
-  xmlns:viz="sap.viz.ui5"
-  controllerName="preview.app.controller.ProductDetailsView"
-  displayBlock="true">
-  <Page title="ProductDetailsView" enableScrolling="true">
+          xmlns="sap.m"
+          xmlns:layout="sap.ui.layout"
+          xmlns:form="sap.ui.layout.form"
+          xmlns:core="sap.ui.core"
+          controllerName="converted.productdetailsview.controller.ProductDetailsView"
+          displayBlock="true"
+          xmlns:commons="sap.ui.commons">
+  <Page title="Product Details" showNavButton="true" navButtonPress="onBackPress">
     <content>
-      <Title id="title_wcta3u8g" text="Product Details"/>
-      <form:SimpleForm id="formContainer">
+      <!-- Search Field -->
+      <SearchField id="searchField" width="auto" search="onSearch" placeholder="Search Products"/>
+
+      <List id="productList" items="{products>/}" mode="SingleSelectMaster" selectionChange="onProductListItemPress">
+        <StandardListItem title="{products>ProductName}" description="{products>Description}" type="Navigation" press="onProductListItemPress"/>
+      </List>
+
+      <form:SimpleForm id="formContainer"
+                       editable="true"
+                       layout="ResponsiveGridLayout"
+                       title="Product Details"
+                       labelSpanXL="4"
+                       labelSpanL="4"
+                       labelSpanM="4"
+                       labelSpanS="12"
+                       adjustLabelSpan="false"
+                       emptySpanXL="0"
+                       emptySpanL="0"
+                       emptySpanM="0"
+                       emptySpanS="0"
+                       columnsXL="2"
+                       columnsL="2"
+                       columnsM="2"
+                       singleContainerFullSize="false">
         <form:content>
-          <!-- Empty SimpleForm content -->
+          <Label text="{i18n>productIDLabel}"/>
+          <Input id="productIDField" value="{product>/ProductID}" editable="false"/>
+
+          <Label text="{i18n>productNameLabel}"/>
+          <Input id="productNameField" value="{product>/ProductName}" editable="true"/>
+
+          <Label text="{i18n>productDescriptionLabel}"/>
+          <TextArea id="productDescriptionField" value="{product>/Description}" editable="true" rows="3"/>
+
+          <Label text="{i18n>productPriceLabel}"/>
+          <Input id="productPriceField" value="{product>/Price}" editable="true"/>
+
+          <Label text="{i18n>productCategoryElement}"/>
+          <Select id="productCategoryDropDown"
+                  selectedKey="{product>/CategoryID}"
+                  items="{
+					path: 'categories>/',
+					sorter: {
+						path: 'CategoryName'
+					}
+				}">
+            <core:Item key="{categories>CategoryID}" text="{categories>CategoryName}"/>
+          </Select>
         </form:content>
       </form:SimpleForm>
-      <Button id="saveButton" text="Save"/>
-      <MessagePopover id="messageArea"/>
+      <Button id="saveButton" text="Save" press="handleSave"/>
+      <MessagePopover id="messageArea"
+                      placement="Bottom">
+      </MessagePopover>
     </content>
+    <footer>
+      <Toolbar>
+        <ToolbarSpacer/>
+        <Button text="Next" press="onNextPress"/>
+      </Toolbar>
+    </footer>
   </Page>
 </mvc:View>

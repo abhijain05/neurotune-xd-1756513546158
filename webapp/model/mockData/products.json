@@ -1,0 +1,112 @@
+{
+  "products": [
+    {
+      "ProductID": "PRD001",
+      "ProductName": "Laptop Pro 15",
+      "Description": "High-performance laptop with 15-inch display",
+      "Price": 1299.99,
+      "Category": "Electronics",
+      "CategoryID": "CAT001",
+      "ImageUrl": "https://via.placeholder.com/150"
+    },
+    {
+      "ProductID": "PRD002",
+      "ProductName": "Wireless Mouse",
+      "Description": "Ergonomic wireless mouse for comfortable use",
+      "Price": 29.99,
+      "Category": "Electronics",
+      "CategoryID": "CAT001",
+      "ImageUrl": "https://via.placeholder.com/150"
+    },
+    {
+      "ProductID": "PRD003",
+      "ProductName": "Cotton T-Shirt",
+      "Description": "Comfortable cotton t-shirt for everyday wear",
+      "Price": 19.99,
+      "Category": "Clothing",
+      "CategoryID": "CAT002",
+      "ImageUrl": "https://via.placeholder.com/150"
+    },
+    {
+      "ProductID": "PRD004",
+      "ProductName": "Denim Jeans",
+      "Description": "Classic denim jeans with a modern fit",
+      "Price": 59.99,
+      "Category": "Clothing",
+      "CategoryID": "CAT002",
+      "ImageUrl": "https://via.placeholder.com/150"
+    },
+    {
+      "ProductID": "PRD005",
+      "ProductName": "Coffee Maker",
+      "Description": "Automatic coffee maker for delicious coffee",
+      "Price": 79.99,
+      "Category": "Appliances",
+      "CategoryID": "CAT003",
+      "ImageUrl": "https://via.placeholder.com/150"
+    },
+    {
+      "ProductID": "PRD006",
+      "ProductName": "Toaster Oven",
+      "Description": "Versatile toaster oven with multiple functions",
+      "Price": 99.99,
+      "Category": "Appliances",
+      "CategoryID": "CAT003",
+      "ImageUrl": "https://via.placeholder.com/150"
+    },
+    {
+      "ProductID": "PRD007",
+      "ProductName": "Running Shoes",
+      "Description": "Lightweight running shoes for optimal performance",
+      "Price": 89.99,
+      "Category": "Shoes",
+      "CategoryID": "CAT004",
+      "ImageUrl": "https://via.placeholder.com/150"
+    },
+    {
+      "ProductID": "PRD008",
+      "ProductName": "Leather Boots",
+      "Description": "Stylish leather boots for a sophisticated look",
+      "Price": 149.99,
+      "Category": "Shoes",
+      "CategoryID": "CAT004",
+      "ImageUrl": "https://via.placeholder.com/150"
+    },
+    {
+      "ProductID": "PRD009",
+      "ProductName": "Office Chair",
+      "Description": "Ergonomic office chair for comfortable work",
+      "Price": 199.99,
+      "Category": "Furniture",
+      "CategoryID": "CAT005",
+      "ImageUrl": "https://via.placeholder.com/150"
+    },
+    {
+      "ProductID": "PRD010",
+      "ProductName": "Wooden Desk",
+      "Description": "Sturdy wooden desk for a productive workspace",
+      "Price": 299.99,
+      "Category": "Furniture",
+      "CategoryID": "CAT005",
+      "ImageUrl": "https://via.placeholder.com/150"
+    },
+    {
+      "ProductID": "PRD011",
+      "ProductName": "Smart Watch",
+      "Description": "Feature-rich smart watch for fitness tracking",
+      "Price": 249.99,
+      "Category": "Electronics",
+      "CategoryID": "CAT001",
+      "ImageUrl": "https://via.placeholder.com/150"
+    },
+    {
+      "ProductID": "PRD012",
+      "ProductName": "Bluetooth Headphones",
+      "Description": "Noise-canceling Bluetooth headphones for immersive audio",
+      "Price": 129.99,
+      "Category": "Electronics",
+      "CategoryID": "CAT001",
+      "ImageUrl": "https://via.placeholder.com/150"
+    }
+  ]
+}

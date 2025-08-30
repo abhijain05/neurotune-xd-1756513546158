@@ -4,30 +4,43 @@ sap.ui.define([
 ], function (Controller, UIComponent) {
   "use strict";
 
+  /**
+   * @name converted.productdetailsview.controller.App
+   * @class Main application controller
+   * @extends sap.ui.core.mvc.Controller
+   */
   return Controller.extend("converted.productdetailsview.controller.App", {
+    /**
+     * Called when the app controller is initialized.
+     * Sets up the router and handles initial navigation.
+     */
     onInit: function () {
-      console.log("App controller initialized");
-      
+      // Log app initialization
+      jQuery.sap.log.info("App controller initialized");
+
       // Get the router instance
       var oRouter = UIComponent.getRouterFor(this);
-      
+
+      // Check if router is available
       if (oRouter) {
-        console.log("Router found, initializing navigation");
-        
-        // Add error handling for routing
-        oRouter.attachBypassed(function(oEvent) {
-          console.log("Route bypassed:", oEvent.getParameter("hash"));
+        jQuery.sap.log.info("Router found, initializing navigation");
+
+        // Attach error handling for routing
+        oRouter.attachBypassed(function (oEvent) {
+          jQuery.sap.log.warning("Route bypassed:", oEvent.getParameter("hash"));
         });
-        
+
         // Navigate to main view if no hash is set
         if (!window.location.hash || window.location.hash === "#") {
-          console.log("No hash found, navigating to main route");
-          setTimeout(function() {
-            oRouter.navTo("RouteMain");
+          jQuery.sap.log.info("No hash found, navigating to main route");
+          // Delay navigation to allow the UI to render
+          setTimeout(function () {
+            oRouter.navTo("main");
           }, 100);
         }
       } else {
-        console.error("Router not found in App controller");
+        // Log error if router is not found
+        jQuery.sap.log.error("Router not found in App controller");
       }
     }
   });

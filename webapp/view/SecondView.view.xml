@@ -1,0 +1,13 @@
+<mvc:View
+    controllerName="converted.productdetailsview.controller.SecondView"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc">
+    <Page
+        id="secondPage"
+        title="Second View">
+        <content>
+            <Text text="This is the second view."/>
+        </content>
+    </Page>
+</mvc:View>
