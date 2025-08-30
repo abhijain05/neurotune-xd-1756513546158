@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebDynpro xmlns="http://www.sap.com/wd/webdynpro">
+  <View name="ProductDetailsView">
+    <Title>Product Details</Title>
+    <FormContainer id="formContainer">
+      <FormElement id="productIDElement">
+        <Label text="Product ID" id="productIDLabel"/>
+        <InputField id="productIDField" value="{/Product/ProductID}" editable="false"/>
+      </FormElement>
+      <FormElement id="productNameElement">
+        <Label text="Product Name" id="productNameLabel"/>
+        <InputField id="productNameField" value="{/Product/ProductName}" editable="true"/>
+      </FormElement>
+      <FormElement id="productDescriptionElement">
+        <Label text="Description" id="productDescriptionLabel"/>
+        <InputField id="productDescriptionField" value="{/Product/Description}" editable="true" multiline="true"/>
+      </FormElement>
+      <FormElement id="productPriceElement">
+        <Label text="Price" id="productPriceLabel"/>
+        <InputField id="productPriceField" value="{/Product/Price}" editable="true"/>
+      </FormElement>
+      <FormElement id="productCategoryElement">
+        <Label text="Category" id="productCategoryLabel"/>
+        <DropDownByKey id="productCategoryDropDown" key="{/Product/Category}" items="{/Categories}" keyField="CategoryID" textField="CategoryName"/>
+      </FormElement>
+      <!-- Add more FormElements as needed -->
+    </FormContainer>
+    <Button id="saveButton" text="Save" press="handleSave"/>
+    <MessageArea id="messageArea"/>
+  </View>
+  <Controller name="ProductDetailsViewController">
+    <!-- Methods -->
+    <Method name="handleSave">
+      <!--Implementation to save product data-->
+      <![CDATA[
+        // Get data from input fields
+        wdContext.currentProductElement().setProductName(wdContext.nodeProduct.currentProductElement().getProductName());
+        wdContext.currentProductElement().setDescription(wdContext.nodeProduct.currentProductElement().getDescription());
+        wdContext.currentProductElement().setPrice(wdContext.nodeProduct.currentProductElement().getPrice());
+        wdContext.currentProductElement().setCategory(wdContext.nodeProduct.currentProductElement().getCategory());
+
+        // Save data to backend (replace with actual backend call)
+        try {
+          // ... your backend save logic here ...
+          wdComponentAPI.getMessageManager().reportSuccess("Product saved successfully!");
+        } catch (Exception e) {
+          wdComponentAPI.getMessageManager().reportException("Error saving product: " + e.getMessage(), true);
+        }
+      ]]>
+    </Method>
+      <Method name="wdDoInit">
+          <![CDATA[
+            // Initialize context data (replace with actual data fetching)
+            wdContext.nodeProduct.bind(wdContext.createProduct());
+            wdContext.nodeCategories.bind(wdContext.createCategories());
+
+            // Example data for testing
+            wdContext.nodeProduct.currentProductElement().setProductID("PRD001");
+            wdContext.nodeProduct.currentProductElement().setProductName("Test Product");
+            wdContext.nodeProduct.currentProductElement().setDescription("This is a test product.");
+            wdContext.nodeProduct.currentProductElement().setPrice(100.0);
+            wdContext.nodeProduct.currentProductElement().setCategory("CAT001");
+
+            wdContext.nodeCategories.addElement(wdContext.createCategory().setCategoryID("CAT001").setCategoryName("Electronics"));
+            wdContext.nodeCategories.addElement(wdContext.createCategory().setCategoryID("CAT002").setCategoryName("Clothing"));
+
+          ]]>
+      </Method>
+  </Controller>
+</WebDynpro>
